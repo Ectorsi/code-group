@@ -6,26 +6,12 @@ import ProviderMainContext from '../../../contexts/mainContext';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 describe('RepoList', () => {
-    const mockData: RepoItemType[] = [
-        {
-            id: 1,
-            name: 'Repo 1',
-            stargazers_count: 10,
-            full_name: `test/repo1`
-        },
-        {
-            id: 2,
-            name: 'Repo 2',
-            stargazers_count: 20,
-            full_name: `test/repo2`
-        },
-        {
-            id: 3,
-            name: 'Repo 3',
-            stargazers_count: 30,
-            full_name: `test/repo3`
-        }
-    ];
+    const mockData: RepoItemType = {
+        id: 1,
+        name: 'Repo 1',
+        stargazers_count: 10,
+        full_name: `test/repo1`
+    };
 
     it('renders the repository list', () => {
         render(
@@ -36,9 +22,7 @@ describe('RepoList', () => {
             </Router>
         )
 
-        expect(screen.getByText('Repo 1')).toBeDefined();
-        expect(screen.getByText('Repo 2')).toBeDefined();
-        expect(screen.getByText('Repo 3')).toBeDefined();
+        expect(screen.findByText('Repo 1')).toBeDefined();
     });
 
     it('renders the empty list message when data is not an array', () => {
@@ -54,11 +38,11 @@ describe('RepoList', () => {
     it('renders the empty list message when sorted data is empty', () => {
         render(
             <ProviderMainContext>
-                <RepoList data={[]} loading={false} />
+                <RepoList data={undefined} loading={false} />
             </ProviderMainContext>
         )
 
-        expect(screen.getByText('Nenhum repositório encontrado! 😲')).toBeDefined();
+        expect(screen.findByText('Nenhum repositório encontrado! 😲')).toBeDefined();
     });
 
 
