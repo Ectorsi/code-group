@@ -5,7 +5,7 @@ import * as S from './styles';
 import { sortDataFunction } from '../../../utils';
 
 export type RepoListProps = {
-    data?: RepoItemType[];
+    data?: RepoItemType;
     loading?: boolean;
 };
 
@@ -16,8 +16,8 @@ const RepoList = ({ data, loading }: RepoListProps) => {
         if (!Array.isArray(data)) return !loading && <S.EmptyList>Falha ao obter dados! 😲</S.EmptyList>;
         const sortedData = sortDataFunction(data, sortData);
         return sortedData.length > 0 ? (
-            sortedData?.map((repo) => (
-                <RepoItem key={repo.id} {...repo} />
+            sortedData?.map((repo, index) => (
+                <RepoItem key={(index * Math.random())} {...repo} />
             ))
         ) : (
             !loading && <S.EmptyList>Nenhum repositório encontrado! 😲</S.EmptyList>
