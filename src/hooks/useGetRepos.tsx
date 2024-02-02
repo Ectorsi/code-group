@@ -18,7 +18,7 @@ const useGetRepos = (username: string): useGetReposReturn => {
         setLoading(true);
         try {
             const dataResponse = await fetchRepos(username);
-            setData(dataResponse);
+            setData([dataResponse]); // Fix: Pass an array containing the dataResponse
             setLoading(false);
         } catch (error) {
             setError(true);

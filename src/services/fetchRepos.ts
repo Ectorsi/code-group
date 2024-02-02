@@ -1,4 +1,4 @@
-import { RepoType } from "../ui/components/RepoItem/RepoItem";
+import { RepoItemType } from "../ui/components/RepoItem/RepoItem";
 import { BaseUrl } from "./baseUrl";
 
 export const fetchRepos = async (username: string) => {
@@ -9,6 +9,6 @@ export const fetchRepos = async (username: string) => {
             'Authorization': `Bearer ${token}`,
         },
     });
-    const dataResponse: RepoType = await response.json();
+    const dataResponse: RepoItemType = await response.json();
     return dataResponse;
 }
