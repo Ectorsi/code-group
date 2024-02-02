@@ -44,6 +44,9 @@ Pensando em garantir a melhor qualidade dos projetos em que trabalho, busco semp
 
 </br>
 
+# Para acessar o projeto funcional na Vercel:
+- [acessar](https://code-group.vercel.app/)
+
 ## 🚀 Tecnologias
 
 Technologies that I used to develop this web client
