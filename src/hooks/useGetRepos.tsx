@@ -12,13 +12,13 @@ export type useGetReposReturn = {
 const useGetRepos = (username: string): useGetReposReturn => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    const [data, setData] = useState<RepoItemType[]>([]); // Update the type of data to be an array of RepoItemType
+    const [data, setData] = useState<RepoItemType[]>([]);
 
     const fetchReposData = useCallback(async () => {
         setLoading(true);
         try {
             const dataResponse = await fetchRepos(username);
-            setData([dataResponse]); // Fix: Pass an array containing the dataResponse
+            setData([dataResponse]);
             setLoading(false);
         } catch (error) {
             setError(true);
